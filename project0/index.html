@@ -1,11 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <h1>Hello</h1>
-</body>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f1f1f1;
+        font-family: Arial, sans-serif;
+      }
+      .nav {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+      .search {
+        text-align: center;
+      }
+      h1 {
+        font-size: 80px;
+        font-family: product-sans;
+        margin: 20px;
+      }
+      .search input[type="text"] {
+        border-radius: 20px;
+        display: block;
+        margin: 20px auto;
+        padding: 10px;
+        font-size: 18px;
+        width: 600px;
+      }
+      .search input[type="submit"] {
+        border-radius: 10px;
+        margin: 0px 10px;
+        padding: 10px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <a href="ImgSearch.html">Image Search</a>
+      <a href="AdvSearch.html">Advanced Search</a>
+    </div>
+    <div class="search">
+      <h1>Google</h1>
+      <form action="https://www.google.com/search">
+        <input type="text" name="q" />
+        <div class="btn">
+          <input type="submit" value="Google Search" />
+          <input type="submit" value="I'm feeling lucky" onclick="document.getElementById('searchForm').action+='&btnI';"/>
+        </div>
+      </form>
+    </div>
+  </body>
 </html>
