@@ -5,10 +5,14 @@
 {% endblock %}
 
 {% block body %}
-    <h1>All Pages</h1>
+    <h1>Search results</h1>
 
+    {% if results|length == 0 %}
+        <p>No results found</p>
+    {% endif %}
+    
     <ul>
-        {% for entry in entries %}
+        {% for entry in results %}
             <li><a href="{% url 'entry' title=entry %}">{{ entry }}</a></li>
         {% endfor %}
     </ul>

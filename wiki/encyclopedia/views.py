@@ -26,3 +26,21 @@ def entry(request, title):
             "title": title,
             "content": content
         })
+    
+def search(request):
+    query = request.POST['q']
+    content = convert_markdown(query)
+    if content is not None:
+        return render(request, "encyclopedia/entry.html", {
+            "title": query,
+            "content": content
+        })
+    else:
+        entries = util.list_entries()
+        results = []
+        for entry in entries:
+            if query.lower() in entry.lower():
+                results.append(entry)
+        return render(request, "encyclopedia/search.html", {
+            "results": results
+        })
