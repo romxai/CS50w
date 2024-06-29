@@ -44,3 +44,18 @@ def search(request):
         return render(request, "encyclopedia/search.html", {
             "results": results
         })
+    
+def new(request):
+    if request.method == "POST":
+        title = request.POST['title']
+        content = request.POST['content']
+        if title in util.list_entries():
+            return render(request, "encyclopedia/error.html", {
+                "message": "The page already exists."
+            })
+        else:
+            util.save_entry(title, content)
+            return entry(request, title)
+    else:
+        return render(request, "encyclopedia/new.html")
+    
