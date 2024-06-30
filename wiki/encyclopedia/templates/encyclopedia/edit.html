@@ -5,10 +5,10 @@ Encyclopedia
 
 {% block body %}
 
-<h1>Create New Page</h1>
+<h1>Create Edit Page</h1>
 <br>
 
-<form action={% url 'new' %} method="post">
+<form action={% url 'saveEdit' %} method="post">
   {% csrf_token %}
   <div class="form-group col">
     <div class="form-group row">
@@ -23,7 +23,7 @@ Encyclopedia
           type="text"
           class="form-control"
           id="colFormLabel"
-          placeholder="Enter title"/>
+          value="{{ title }}"/>
       </div>  
     </div>
       <div class="form-group row">
@@ -33,11 +33,7 @@ Encyclopedia
             Content
           </label>
           <div class="col-sm-6">
-            <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder=
-            "Eg:-
-            #Phone
-            
-            A device for communication."></textarea>
+            <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="6">{{ content }}</textarea>
           </div>
       </div>
       <div class="form-group row">
